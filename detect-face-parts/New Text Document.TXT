@@ -1,0 +1,16 @@
+https://drive.google.com/uc?id=1rhMp7JViRpsr7uZ011cqXBpE_VYMNmMX&export=download
+
+https://stackoverflow.com/questions/41912372/dlib-installation-on-windows-10
+
+https://towardsdatascience.com/an-intro-to-deep-learning-for-face-recognition-aa8dfbbc51fb
+
+https://www.pyimagesearch.com/opencv-tutorials-resources-guides/
+
+https://www.pyimagesearch.com/2017/04/10/detect-eyes-nose-lips-jaw-dlib-opencv-python/#download-the-code
+
+https://www.pyimagesearch.com/2017/04/03/facial-landmarks-dlib-opencv-python/
+
+https://www.pyimagesearch.com/2014/11/10/histogram-oriented-gradients-object-detection/
+
+https://www.pyimagesearch.com/2017/03/27/how-to-install-dlib/
+
