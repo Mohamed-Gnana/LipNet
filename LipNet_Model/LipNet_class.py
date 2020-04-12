@@ -89,7 +89,11 @@ class LipNet(object):
         
         #Model
         self.model = Model(inputs = self.input_data, outputs = self.y_pred, name='LipNet')
-        
+        #Preparing input
+        train_it = datagen.flow_from_directory('dataset/train/', class_mode='binary', batch_size=64, target_size=(224, 224))
+	    test_it = datagen.flow_from_directory('dataset/test/', class_mode='binary', batch_size=64, target_size=(224, 224))
+        #Start training
+        model.fit_generator(train_it, steps_per_epoch=len(train_it), validation_data=test_it, validation_steps=len(test_it), epochs=10, verbose=1)
     def summary(self):
         Model(inputs=self.input_data, outputs=self.y_pred).summary()
 
