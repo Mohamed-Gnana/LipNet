@@ -17,7 +17,7 @@ from matplotlib.pyplot import imshow
 #matplotlib inline
 import tensorflow as tf
 import keras.backend as K
-
+from CTC_fun import CTC
 class LipNet(object):
     def __init__ (self , img_h = 50 , img_w = 100 , img_c = 3 , frame_n = 75, max_str_len = 32 , output_siz = 28):
         self.img_h = img_h
@@ -87,8 +87,13 @@ class LipNet(object):
         #Applying softmax
         self.y_pred = Activation('softmax',name = 'SM1')(self.X)
         
+        self.labels = Input(name='labels', shape=[self.absolute_max_string_len], dtype='float32')
+        self.input_length = Input(name='input_length', shape=[1], dtype='int64')
+        self.label_length = Input(name='label_length', shape=[1], dtype='int64')
+
+        self . loss_out = CTC("ctc" , [self.y_pred,self.labels,self.input_length,self.label_length])
         #Model
-        self.model = Model(inputs = self.input_data, outputs = self.y_pred, name='LipNet')
+        self.model = Model(inputs = self.input_data, outputs = self.loss_out, name='LipNet')
         
     def summary(self):
         Model(inputs=self.input_data, outputs=self.y_pred).summary()
